@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: python-nefzbyme-gitops
+  description: This is GitOps manifest for python-nefzbyme   
+  links:
+    - url: https://www.redhat.com/en/solutions/trusted-software-supply-chain
+      title: Trusted Secure Supply Chain 
+      icon: dashboard
+      type: admin-dashboard
+  annotations:    
+    argocd/app-selector: tssc/gitops=python-nefzbyme
+    backstage.io/kubernetes-id: python-nefzbyme 
+    backstage.io/techdocs-ref: dir:. 
+    janus-idp.io/tekton: python-nefzbyme
+spec:
+  type: gitops
+  owner: user:guest 
+  lifecycle: experimental
+  dependsOn:
+    - component:python-nefzbyme
